@@ -5,7 +5,7 @@ WORKDIR /App
 RUN ./mvnw package
 
 FROM openjdk:20-slim
-COPY  --from=builder /app/target/spring-petclinic-3.0.0-SNAPSHOT.jar ./app.jar
+COPY  --from=builder /App/target/spring-petclinic-3.0.0-SNAPSHOT.jar ./app.jar
 USER nobody
 EXPOSE 8080
 CMD ["java", "-jar", "/app.jar"]
